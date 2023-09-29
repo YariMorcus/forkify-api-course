@@ -10,8 +10,19 @@
 }
 
 .pagination {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: auto;
   padding: 0 3.5rem;
+
+  &__number-container {
+    grid-column: 2;
+    font-size: 1.3rem;
+    color: $color-primary;
+    font-weight: 600;
+    text-align: center;
+    line-height: 32px;
+  }
 
   &::after {
     content: '';
@@ -21,10 +32,10 @@
 
   &__btn {
     &--prev {
-      float: left;
+      grid-column: 1;
     }
     &--next {
-      float: right;
+      grid-column: 3;
     }
   }
 }
