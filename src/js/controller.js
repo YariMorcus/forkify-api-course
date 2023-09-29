@@ -9,7 +9,6 @@ import addRecipeView from './views/addRecipeView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import View from './views/View.js';
 
 const controlRecipes = async function () {
   try {
@@ -126,10 +125,6 @@ export const controlAddRecipe = async function (recipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('New feature!');
-};
-
 const init = function () {
   addRecipeView.addHandlerUpload(controlAddRecipe);
   bookmarksView.addHandlerRender(controlBookmarks);
@@ -138,7 +133,6 @@ const init = function () {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
-  newFeature();
 };
 
 init();
