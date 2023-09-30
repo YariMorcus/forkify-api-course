@@ -8,4 +8,6 @@ The Forkify API project makes it possible for people to:
 2. Create recipes
 3. Bookmark recipes
 
+The total number of pages is shown between the pagination buttons.
+
 This project is part of ["The Complete JavaScript Course 2023: From Zero to Expert!"](https://www.udemy.com/course/the-complete-javascript-course/) course of [Jonas Schmedtmann](https://www.udemy.com/course/the-complete-javascript-course/#instructor-1).
