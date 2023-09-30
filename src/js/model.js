@@ -8,6 +8,7 @@ export const state = {
     page: 1,
     results: [],
     resultsPerPage: RES_PER_PAGE,
+    totalPages: null,
   },
   bookmarks: [],
 };
@@ -83,10 +84,19 @@ export const loadSearchResults = async function (query) {
         ...(rec.key && { key: rec.key }),
       };
     });
+
+    // 5) Calculate number of pages
+    calculateNumberOfPages();
   } catch (err) {
     console.error(`${err} ❌❌❌❌`);
     throw err;
   }
+};
+
+const calculateNumberOfPages = function () {
+  state.search.totalPages = Math.ceil(
+    state.search.results.length / state.search.resultsPerPage
+  );
 };
 
 /**
