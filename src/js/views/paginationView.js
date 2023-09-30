@@ -17,30 +17,43 @@ class paginationView extends View {
 
   _generateMarkup() {
     const curPage = this._data.page;
-    const numPages = Math.ceil(
-      this._data.results.length / this._data.resultsPerPage
-    );
+    const numPages = this._data.totalPages;
 
     // Page 1 and there are other pages
     if (curPage === 1 && numPages > 1) {
-      return this._generateMarkupNextButton();
+      return `
+        ${this._generateMarkupTotalPages()}
+        ${this._generateMarkupNextButton()}
+      `;
     }
 
     // Last page
     if (curPage === numPages && numPages > 1) {
-      return this._generateMarkupPreviousButton();
+      return `
+        ${this._generateMarkupPreviousButton()}
+        ${this._generateMarkupTotalPages()}
+      `;
     }
 
     // Other page
     if (curPage < numPages) {
       return `
         ${this._generateMarkupPreviousButton()}
+        ${this._generateMarkupTotalPages()}
         ${this._generateMarkupNextButton()}
       `;
     }
 
     // Page 1 and there are NO other pages
     return '';
+  }
+
+  _generateMarkupTotalPages() {
+    return `
+      <div class="pagination__number-container">
+        <span class="pagination__page-number">${this._data.totalPages}</span>
+      </div>
+    `;
   }
 
   _generateMarkupPreviousButton() {
